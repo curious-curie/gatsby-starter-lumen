@@ -18,13 +18,17 @@ const Author = ({ author, isIndex }: Props) => (
       <img
         src={withPrefix(author.photo)}
         className={styles['author__photo']}
-        width="75"
-        height="75"
+        width="200"
+        height="200"
         alt={author.name}
       />
     </Link>
-
-    { isIndex === true ? (
+    <div>
+    <a href="/" className={styles['logo']}>
+      <img src="https://res.cloudinary.com/hlsr7ls49/image/upload/c_pad,h_314,q_80,w_600/v1572840398/mdpq2bdet7nuhw9stixq.png"></img>
+    </a>
+    </div>
+    {/* { isIndex === true ? (
       <h1 className={styles['author__title']}>
         <Link className={styles['author__title-link']} to="/">{author.name}</Link>
       </h1>
@@ -32,8 +36,8 @@ const Author = ({ author, isIndex }: Props) => (
       <h2 className={styles['author__title']}>
         <Link className={styles['author__title-link']} to="/">{author.name}</Link>
       </h2>
-    )}
-    <p className={styles['author__subtitle']}>{author.bio}</p>
+    )} */}
+    {/* <p className={styles['author__subtitle']}>{author.bio}</p> */}
   </div>
 );
 

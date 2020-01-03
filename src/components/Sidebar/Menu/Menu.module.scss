@@ -3,7 +3,6 @@
 
 .menu {
   @include margin-bottom(1);
-
   &__list {
     list-style: none;
     padding: 0;
@@ -14,7 +13,7 @@
       margin: 10px 0;
 
       &-link {
-        font-size: $typographic-base-font-size;
+        font-size: 20px;
         color: $typographic-base-font-color;
         font-weight: normal;
         border: 0;

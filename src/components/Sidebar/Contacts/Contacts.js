@@ -26,6 +26,7 @@ const Contacts = ({ contacts }: Props) => (
         </li>
       )))}
     </ul>
+    <a href="https://marketplace.travelflan.com/" className={styles['banner']}>Marketplace</a>
   </div>
 );
 
