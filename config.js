@@ -6,7 +6,7 @@ module.exports = {
   title: 'TravelFlan Tech Blog',
   subtitle: '트래블플랜 기술블로그',
   copyright: '© All rights reserved.',
-  disqusShortname: 'TravelFlan',
+  disqusShortname: '',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-73379983-2',
   useKatex: false,
@@ -18,26 +18,26 @@ module.exports = {
     {
       label: 'About',
       path: '/pages/about'
-    },
-    {
-      label: 'Contact',
-      path: '/pages/contacts'
     }
+    // {
+    //   label: 'Contact',
+    //   path: '/pages/contacts'
+    // }
   ],
   author: {
     name: 'TravelFlan',
     photo: '/photo.jpg',
     bio: '',
     contacts: {
-      email: '',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '',
+      email: 'info@travelflan.com',
+      facebook: 'https://facebook.com/TravelFlan/',
+      telegram: '',
+      twitter: '',
+      github: '',
+      rss: 'https://www.travelflan.com/',
       vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://linkedin.com/company/freed-group',
+      instagram: '',
       line: '',
       gitlab: '',
       weibo: '',

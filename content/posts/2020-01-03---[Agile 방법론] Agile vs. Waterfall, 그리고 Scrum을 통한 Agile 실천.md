@@ -3,6 +3,7 @@ title: "[Agile 방법론] Agile vs. Waterfall, 그리고 Scrum을 통한 Agile �
 date: "2020-01-03T15:46:37.121Z"
 template: "post"
 draft: false
+author: true
 slug: "agile-methodology"
 category: "Development"
 tags:

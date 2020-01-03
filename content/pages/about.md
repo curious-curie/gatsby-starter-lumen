@@ -1,13 +1,18 @@
 ---
-title: "About me"
+title: "About TravelFlan"
 template: "page"
-socialImage: "/media/image-2.jpg"
+socialImage: "/media/company.jpg"
 ---
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
 
-![Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.](/media/image-2.jpg)
+!(TravelFlan)[/media/company.jpg]
 
-*Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.*
+TravelFlan is an award-winning Travel and Lifestyle AI Digital Solution Company utilizing Artificial Technology (AI), Big Data and Machine Learning technologies to provide end-2-end digital solutions. Primarily, we aim to tackle fast-growing Asia Travel and local lifestyle markets. We enrich and expand our partners’ service scope & service level, turn traffic into tangible and intangible benefits, hence, increasing their capability to monetise and engage with their existing user base. We build consumer-facing digital platforms that combine vendor resources, inventory management, and AI recommendation system into one solution. 
+!(TravelFlan)[/media/company.jpg]
+Our signature AI Digital Solutions including Travel Concierge Chatbot and inventory management consolidator effectively increase revenue streams and improves customer engagement through multiple digital channels like social media platforms, official websites, mobile apps and more.
 
-Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+At the back-end, our fast-growing database is powered by 20M+ weekly unique data points with our home-grown Machine Learning capabilities like data collection, analysis and reporting. Currently, we are working with a number of industry leaders like China Mobile, Samsung Group, SITA, Hong Kong Airlines and more to tackle their revenue and customer experience issues. 
+
+We are the recipient of 2019 Marriott Innovation Challenge 2nd place, PwC Tech Raiser; 2018 APAC ICT Grand Award, ITB China Company of The Year and Hong Kong ICT Gold Award. TravelFlan's also part of Silicon Valley 500startups, SOSV, K-Startups and more.
+
+!(Milestone)[/media/milestone.jpg]
