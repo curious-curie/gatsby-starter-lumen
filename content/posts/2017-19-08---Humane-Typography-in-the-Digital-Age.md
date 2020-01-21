@@ -1,80 +1,180 @@
 ---
-title: Humane Typography in the Digital Age
-date: "2017-08-19T22:40:32.169Z"
+title: Developing Components with Typescript 
+date: "2020-01-19T22:40:32.169Z"
 template: "post"
-draft: true
-slug: "humane-typography-in-the-digital-age"
-category: "Typography"
+draft: false
+slug: "typescript-components"
+category: "FRONTEND"
 tags:
-  - "Design"
-  - "Typography"
+  - "Typescript"
+  - "Vue"
   - "Web Development"
-description: "An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts."
-socialImage: "/media/42-line-bible.jpg"
+description: "자바스크립트로 쓴 뷰 컴포넌트를 타입스크립트로 바꾸는 방법엔 크게 Vue.extend를 이용하는 최신의 방법과 vue-class-component를 이용해서 클래스 스타일의 컴포넌트를 쓰는 두 가지 방법이 있다. ..."
+socialImage: ""
 ---
 
-- [The first transition](#the-first-transition)
-- [The digital age](#the-digital-age)
-- [Loss of humanity through transitions](#loss-of-humanity-through-transitions)
-- [Chasing perfection](#chasing-perfection)
 
-An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.
+자바스크립트로 쓴 뷰 컴포넌트를 타입스크립트로 바꾸는 방법엔 크게 Vue.extend를 이용하는 최신의 방법과 vue-class-component를 이용해서 클래스 스타일의 컴포넌트를 쓰는 두 가지 방법이 있다. 
 
-The typography of this industrial age was no longer handcrafted. Mass production and profit became more important. Quantity mattered more than the quality. The books and printed works in general lost a part of its humanity. The typefaces were not produced by craftsmen anymore. It was the machines printing and tying the books together now. The craftsmen had to let go of their craft and became a cog in the process. An extension of the industrial machine.
+### Vue.extend 
 
-But the victory of the industrialism didn’t mean that the craftsmen were completely extinct. The two worlds continued to coexist independently. Each recognising the good in the other — the power of industrialism and the humanity of craftsmanship. This was the second transition that would strip typography of a part of its humanity. We have to go 500 years back in time to meet the first one.
+기존에 자바스크립트로 정의한 컴포넌트를 Vue.extend()로 감싸는 방식. 최신의 방식이고 간단하다. 자바스크립트에서 하던 방식 그대로 컴포넌트를 정의하면 되고, type을 사용할 수 있다. 
 
-## The first transition
+그러나 Vuex와 함께 사용할 때 치명적이라고 느껴진 단점은 컴포넌트 내에서 맵핑헬퍼를 사용할 수 없다는 것… 
 
-A similar conflict emerged after the invention of the first printing press in Europe. Johannes Gutenberg invented movable type and used it to produce different compositions. His workshop could print up to 240 impressions per hour. Until then, the books were being copied by hand. All the books were handwritten and decorated with hand drawn ornaments and figures. A process of copying a book was long but each book, even a copy, was a work of art.
+```typescript
+methods: {
+  ...mapActions(['addTodo']),
+  addTodo () {
+    this.addTodo()
+    this.newTodo = ''
+  }
+}
+```
 
-The first printed books were, at first, perceived as inferior to the handwritten ones. They were smaller and cheaper to produce. Movable type provided the printers with flexibility that allowed them to print books in languages other than Latin. Gill describes the transition to industrialism as something that people needed and wanted. Something similar happened after the first printed books emerged. People wanted books in a language they understood and they wanted books they could take with them. They were hungry for knowledge and printed books satisfied this hunger.
+![image-20200105223336304](/Users/curieyoo/Library/Application Support/typora-user-images/image-20200105223336304.png)
 
-![42-line-bible.jpg](/media/42-line-bible.jpg)
+이런식으로 methods에 mapActions를 정의한 후  'addTodo'를 사용하면 함수가 존재하지 않는다는 식의 에러가 뜬다.
 
-*The 42–Line Bible, printed by Gutenberg.*
+그래서 action을 dispatch하기 위해서 mapActions를 사용하지 못하고 this.$store.dispatch를 사용해야한다. mapState나 mapGetters도 마찬가지... 이런 치명적인 단점 때문에 나는 클래스 스타일 컴포넌트를 사용했다. 
 
-But, through this transition, the book lost a large part of its humanity. The machine took over most of the process but craftsmanship was still a part of it. The typefaces were cut manually by the first punch cutters. The paper was made by hand. The illustrations and ornaments were still being hand drawn. These were the remains of the craftsmanship that went almost extinct in the times of Eric Gill.
++) Vue.extend의 또 다른 문제점
 
-## The digital age
+Todo type으로 된 배열을 부모 컴포넌트로부터 props로 받는 경우를 생각해보자.
 
-The first transition took away a large part of humanity from written communication. Industrialisation, the second transition described by Eric Gill, took away most of what was left. But it’s the third transition that stripped it naked. Typefaces are faceless these days. They’re just fonts on our computers. Hardly anyone knows their stories. Hardly anyone cares. Flicking through thousands of typefaces and finding the “right one” is a matter of minutes.
+그 경우 컴포넌트에 이런 식으로 type을 선언하면, 'Todo'라는 타입을 선언해야하는데 넌 value를 쓰고있어!하는 에러가 난다. 내가 type을 선언한게 아닌, type이라는 자리에 Todo[]를 값으로 넣어줬다고 인식하는 것이다. primitive types로 선언하면 이런 오류가 안 난다. 
 
-> In the new computer age the proliferation of typefaces and type manipulations represents a new level of visual pollution threatening our culture. Out of thousands of typefaces, all we need are a few basic ones, and trash the rest.
->
-— Massimo Vignelli
+```typescript
+props: {
+  todos: {
+    type: Todo[],
+    required: true,
+    default: []
+  }
+}
+```
 
-Typography is not about typefaces. It’s not about what looks best, it’s about what feels right. What communicates the message best. Typography, in its essence, is about the message. “Typographical design should perform optically what the speaker creates through voice and gesture of his thoughts.”, as El Lissitzky, a famous Russian typographer, put it.
+```typescript
+interface Todo {
+	title: string;
+	completed: true;
+}
+```
 
-## Loss of humanity through transitions
+이것을 해결하기 위해선 Object를 내가 사용하고자 하는 Interface를 리턴하는 함수로 캐스팅하면 된다. 
 
-Each transition took away a part of humanity from written language. Handwritten books being the most humane form and the digital typefaces being the least. Overuse of Helvetica is a good example. Messages are being told in a typeface just because it’s a safe option. It’s always there. Everyone knows it but yet, nobody knows it. Stop someone on the street and ask him what Helvetica is? Ask a designer the same question. Ask him where it came from, when, why and who designed it. Most of them will fail to answer these questions. Most of them used it in their precious projects but they still don’t spot it in the street.
+```typescript
+type ComplexObjectInterface = {
+  testProp: string
+  modelName: number
+}
+export default Vue.extend({
+  props: {
+    propExample: {
+      type: Object as () => ComplexObjectInterface
+    }
+  } 
+```
 
-<figure>
-	<blockquote>
-		<p>Knowledge of the quality of a typeface is of the greatest importance for the functional, aesthetic and psychological effect.</p>
-		<footer>
-			<cite>— Josef Mueller-Brockmann</cite>
-		</footer>
-	</blockquote>
-</figure>
+왜 이렇게하면 오류가 해결되는 걸까?
 
-Typefaces don’t look handmade these days. And that’s all right. They don’t have to. Industrialism took that away from them and we’re fine with it. We’ve traded that part of humanity for a process that produces more books that are easier to read. That can’t be bad. And it isn’t.
+`type: someObject`처럼 props의 타입을 선언하면, someObject의 constructor을 넘겨주는 꼴이 된다. 그러나 TypeScript의 인터페이스는 런타임에만 사용 가능해지기 때문에 compile시에는 컴파일러가 인식하지 못한다. 그래서 결국 컴파일러가 제대로 인식할 타입을 넘겨주지 못하기 때문에 컴파일 시에 에러가 나는 것이다. 
 
-> Humane typography will often be comparatively rough and even uncouth; but while a certain uncouthness does not seriously matter in humane works, uncouthness has no excuse whatever in the productions of the machine.
->
-> — Eric Gill
+그래서 이런 식으로 `Object as () => ComplexObjectInterface`함수를 넘겨주면 typescript 타이핑이 자체적으로 타입에 넘겨진 함수가 인터페이스 객체를 리턴할 것이라고 여기기 때문에 에러 없이 실행이 가능한 것이다. 
 
-We’ve come close to “perfection” in the last five centuries. The letters are crisp and without rough edges. We print our compositions with high–precision printers on a high quality, machine made paper.
+어렵지만 해결 방법은 있었다. 클래스 스타일 컴포넌트를 택한 후에야 알아버렸다. 
 
-![type-through-time.jpg](/media/type-through-time.jpg)
+(출처: https://frontendsociety.com/using-a-typescript-interfaces-and-types-as-a-prop-type-in-vuejs-508ab3f83480)
 
-*Type through 5 centuries.*
 
-We lost a part of ourselves because of this chase after perfection. We forgot about the craftsmanship along the way. And the worst part is that we don’t care. The transition to the digital age made that clear. We choose typefaces like clueless zombies. There’s no meaning in our work. Type sizes, leading, margins… It’s all just a few clicks or lines of code. The message isn’t important anymore. There’s no more “why” behind the “what”.
 
-## Chasing perfection
+### 클래스 스타일 컴포넌트
 
-Human beings aren’t perfect. Perfection is something that will always elude us. There will always be a small part of humanity in everything we do. No matter how small that part, we should make sure that it transcends the limits of the medium. We have to think about the message first. What typeface should we use and why? Does the typeface match the message and what we want to communicate with it? What will be the leading and why? Will there be more typefaces in our design? On what ground will they be combined? What makes our design unique and why? This is the part of humanity that is left in typography. It might be the last part. Are we really going to give it up?
+TypeScript decorator인 vue-class-component(https://github.com/vuejs/vue-class-component)를 사용한다. 클래스 형식의 컴포넌트를 쓸 수 있게 해준다. 보통 vue-property-decorator(https://github.com/kaorun343/vue-property-decorator)와 함께 쓰인다. 
 
-*Originally published by [Matej Latin](http://matejlatin.co.uk/) on [Medium](https://medium.com/design-notes/humane-typography-in-the-digital-age-9bd5c16199bd?ref=webdesignernews.com#.lygo82z0x).*
+```typescript
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({
+  props: {
+    propMessage: String
+  }
+})
+export default class App extends Vue {
+  // initial data
+  msg = 123
+
+  // use prop values for initial data
+  helloMsg = 'Hello, ' + this.propMessage
+
+  // lifecycle hook
+  mounted () {
+    this.greet()
+  }
+
+  // computed
+  get computedMsg () {
+    return 'computed ' + this.msg
+  }
+
+  // method
+  greet () {
+    alert('greeting: ' + this.msg)
+  }
+}
+```
+
+`@Component` 데코레이터는 클래스가 Vue 컴포넌트임을 나타내고, props, methods 등 모든 컴포넌트 옵션을 사용할 수 있다.
+
+`…mapState`, `…mapActions`를 썼다. 그런데 또 하나의 문제점이랄까 불편한 점은 @Component 내에서 `mapActions`를 사용해서 받아온 메서드를 class 내에서 함수로 사용할 수 없었다는 것
+
+```typescript
+@Component({
+  components: {
+    Todo
+  },
+  computed: {
+    ...mapState('todos', [
+      'todos',
+      'newTodo'
+    ])
+  },
+  methods: {
+    ...mapActions('todos', [
+      'clearNewTodo',
+      'addTodo',
+      'loadTodos',
+      'toggleTodo',
+      'deleteTodo'
+    ])
+  }
+})
+
+```
+
+```typescript
+export default class TodoList extends Vue {
+  public todos!: TodoConfig[]
+  public filters!: object
+
+  selectedFilter = 'all';
+  created () {
+    this.$store.dispatch('todos/loadTodos', db.collection('todos'))
+  }
+  addTodoItem () {
+    this.$store.dispatch('todos/addTodo')
+    this.$store.dispatch('todos/clearNewTodo')
+  }
+
+	@Watch('$route', { immediate: true, deep: true })
+  onUrlChange (to: any) {
+    this.selectedFilter = to.params.filter
+  }
+}
+```
+
+이런식으로 `@Component` 내에서 mapActions를 통해 함수를 받아왔어도 그걸 class 내의 인스턴스 메소드 내에서 사용할 수는 없고, `this.$store.dispatch`을 통해 접근해야한다. 
+
+Watch는 데코레이터 `@Watch`를 사용해서 클래스 내부에서 구현할 수 있었다
+
