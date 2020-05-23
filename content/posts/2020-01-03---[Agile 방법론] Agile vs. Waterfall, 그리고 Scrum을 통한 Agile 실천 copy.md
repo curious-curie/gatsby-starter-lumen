@@ -117,4 +117,6 @@ Scrum의 진행 과정 및 구성 요소는 다음과 같습니다:
 
 ![Scrum Team](https://www.visual-paradigm.com/servlet/editor-content/scrum/what-is-scrum-team/sites/7/2018/10/what-is-scrum-team.png)
 
-이 글은 https://www.process.st/waterfall-vs-agile/, https://www.scrum.org를 참고하여 작성되었습니다. Curie :) 
+이 글은 https://www.process.st/waterfall-vs-agile/, https://www.scrum.org를 참고하여 작성되었습니다. 
+
+Curie Yoo

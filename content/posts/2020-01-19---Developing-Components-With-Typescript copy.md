@@ -178,3 +178,5 @@ export default class TodoList extends Vue {
 
 Watch는 데코레이터 `@Watch`를 사용해서 클래스 내부에서 구현할 수 있었다
 
+
+Curie Yoo
