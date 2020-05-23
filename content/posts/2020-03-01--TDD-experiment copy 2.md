@@ -1,6 +1,6 @@
 ---
 title: TDD with Vue.js 체험 회고
-date: "2020-0-01T22:40:32.169Z"
+date: "2020-03-11T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "test-driven-development"

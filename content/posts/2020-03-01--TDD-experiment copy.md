@@ -1,5 +1,5 @@
 ---
-title: Using Storybook.js with Vue
+title: Vue.js 환경에서 Storybook 사용하기
 date: "2020-03-01T22:40:32.169Z"
 template: "post"
 draft: false
