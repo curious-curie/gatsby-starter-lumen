@@ -3,7 +3,7 @@ title: "[Javascript] Event Bubbling과의 만남"
 date: "2020-05-21T22:40:32.169Z"
 template: "post"
 draft: false
-slug: "vuex-mapState-mapGetters"
+slug: "event-bubbling"
 category: "FRONTEND"
 tags:
   - "Javascript"
