@@ -1,5 +1,5 @@
 ---
-title: [Javascript] Event Bubbling과의 만남 
+title: "[Javascript] Event Bubbling과의 만남"
 date: "2020-05-21T22:40:32.169Z"
 template: "post"
 draft: false
