@@ -7,8 +7,8 @@ slug: "vuex-mapState-mapGetters"
 category: "FRONTEND"
 tags:
   - "Javascript"
-	- "Web Development"
-	- "Front End"
+  - "Frontend"
+  - "Web Development"
 description: "프로필 사진 업로드 기능을 구현하던 중 이벤트 버블링을 직접 만나게 되었다!
 반가운 마음에 글로 정리해본다. 
 ..."
